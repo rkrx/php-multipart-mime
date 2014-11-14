@@ -22,7 +22,7 @@ class Base64PartType implements PartType {
 	public function __construct($content, $filename, Header $header = null) {
 		if($header === null) {
 			$header = new Header();
-			$header->set('Content-Disposition', 'form-data; name="'.$filename.'"; filename="'.$filename.'"');
+			$header->set('Content-Disposition', 'form-data');
 			$header->set('Content-Transfer-Encoding', 'base64');
 			$header->set('Content-Type', 'application/octet-stream');
 		}
