@@ -4,7 +4,7 @@ namespace MultipartMime\PartTypes;
 use MultipartMime\MimeHeader;
 use MultipartMime\MimePartType;
 
-class MimeBase64MimePartType implements MimePartType {
+class Base64MimePartType implements MimePartType {
 	/**
 	 * @var MimeHeader
 	 */
