@@ -4,7 +4,7 @@ namespace MultipartMime\PartTypes;
 use MultipartMime\MimeHeader;
 use MultipartMime\MimePartType;
 
-class Base64MimePartType implements MimePartType {
+class RawMimePartType implements MimePartType {
 	/**
 	 * @var MimeHeader
 	 */
@@ -40,6 +40,6 @@ class Base64MimePartType implements MimePartType {
 	 * @return string
 	 */
 	public function getContent() {
-		return trim(chunk_split(base64_encode($this->content)));
+		return $this->content;
 	}
 }

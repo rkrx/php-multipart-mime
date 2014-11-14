@@ -6,17 +6,18 @@ class MimeBuilder {
 
 	/**
 	 * @param MimeMultipartMessage $multipartMessage
+	 * @param string $mimeBoundary
 	 * @return string
 	 */
-	public function build(MimeMultipartMessage $multipartMessage) {
+	public function build(MimeMultipartMessage $multipartMessage, $mimeBoundary = 'MIME_boundary') {
 		$headerList = $multipartMessage->getHeader();
 		$parts = $multipartMessage->getParts()->getAll();
 		$result = array();
 		$result[] = $this->buildHeaders($headerList);
 		foreach($parts as $part) {
-			$result[] = $this->buildPart($part);
+			$result[] = $this->buildPart($part, $mimeBoundary);
 		}
-		$result[] = '--MIME_boundary--';
+		$result[] = "--{$mimeBoundary}--";
 		$result[] = '';
 		$result[] = '';
 		return $this->join($result);
@@ -37,15 +38,15 @@ class MimeBuilder {
 
 	/**
 	 * @param MimePartType $partType
+	 * @param string $mimeBoundary
 	 * @return string
 	 */
-	public function buildPart(MimePartType $partType) {
+	public function buildPart(MimePartType $partType, $mimeBoundary) {
 		$parts = array();
-		$content = trim(chunk_split(base64_encode($partType->getContent())));
-		$parts[] = '--MIME_boundary';
+		$parts[] = "--{$mimeBoundary}";
 		$parts[] = $this->buildHeaders($partType->getHeader());
 		$parts[] = '';
-		$parts[] = $content;
+		$parts[] = $partType->getContent();
 		$parts[] = '';
 		return $this->join($parts);
 	}
