@@ -16,10 +16,9 @@ class Base64PartType implements PartType {
 
 	/**
 	 * @param string $content
-	 * @param string $filename
 	 * @param Header $header
 	 */
-	public function __construct($content, $filename, Header $header = null) {
+	public function __construct($content, Header $header = null) {
 		if($header === null) {
 			$header = new Header();
 			$header->set('Content-Disposition', 'form-data');
