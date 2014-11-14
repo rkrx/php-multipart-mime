@@ -1,7 +1,7 @@
 <?php
 namespace MultipartMime;
 
-class MultipartMessage {
+class MimeMultipartMessage {
 	/**
 	 * @var MimeHeader
 	 */
@@ -14,7 +14,7 @@ class MultipartMessage {
 	/**
 	 * @param MimeHeader $header
 	 * @param MimeParts $parts
-	 * @return MultipartMessage
+	 * @return MimeMultipartMessage
 	 */
 	public function __construct(MimeHeader $header = null, MimeParts $parts = null) {
 		if($header === null) {

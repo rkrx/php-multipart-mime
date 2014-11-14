@@ -5,10 +5,10 @@ class MimeBuilder {
 	const LINEBREAK = "\r\n";
 
 	/**
-	 * @param MultipartMessage $multipartMessage
+	 * @param MimeMultipartMessage $multipartMessage
 	 * @return string
 	 */
-	public function build(MultipartMessage $multipartMessage) {
+	public function build(MimeMultipartMessage $multipartMessage) {
 		$headerList = $multipartMessage->getHeader();
 		$parts = $multipartMessage->getParts()->getAll();
 		$result = array();
