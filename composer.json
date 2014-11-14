@@ -1,0 +1,18 @@
+{
+	"name": "rkr/multipartmine",
+	"description": "Multipart Mime with PHP",
+	"minimum-stability": "stable",
+	"license": "MIT",
+	"authors": [{
+		"name": "Ron Kirschler",
+		"email": "ron.kirschler+multipartmine@gmail.com"
+	}],
+	"require": {
+		"php": ">= 5.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"MultipartMime\\": "src/"
+		}
+	}
+}
