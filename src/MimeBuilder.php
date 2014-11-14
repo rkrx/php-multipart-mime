@@ -1,7 +1,7 @@
 <?php
 namespace MultipartMime;
 
-class Builder {
+class MimeBuilder {
 	const LINEBREAK = "\r\n";
 
 	/**
@@ -23,10 +23,10 @@ class Builder {
 	}
 
 	/**
-	 * @param Header $headerList
+	 * @param MimeHeader $headerList
 	 * @return string
 	 */
-	public function buildHeaders(Header $headerList) {
+	public function buildHeaders(MimeHeader $headerList) {
 		$headers = array();
 		foreach($headerList->getAll() as $headerName => $headerValue) {
 			$headers[] = sprintf("%s: %s", trim($headerName), trim($headerValue));
@@ -36,10 +36,10 @@ class Builder {
 	}
 
 	/**
-	 * @param PartType $partType
+	 * @param MimePartType $partType
 	 * @return string
 	 */
-	public function buildPart(PartType $partType) {
+	public function buildPart(MimePartType $partType) {
 		$parts = array();
 		$content = trim(chunk_split(base64_encode($partType->getContent())));
 		$parts[] = '--MIME_boundary';

@@ -1,7 +1,7 @@
 <?php
 namespace MultipartMime;
 
-class Header {
+class MimeHeader {
 	/**
 	 * @var array
 	 */

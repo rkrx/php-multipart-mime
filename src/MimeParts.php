@@ -1,17 +1,17 @@
 <?php
 namespace MultipartMime;
 
-class Parts {
+class MimeParts {
 	/**
 	 * @var array
 	 */
 	private $parts = array();
 
 	/**
-	 * @param PartType $part
+	 * @param MimePartType $part
 	 * @return $this
 	 */
-	public function add(PartType $part) {
+	public function add(MimePartType $part) {
 		$this->parts[] = $part;
 		return $this;
 	}

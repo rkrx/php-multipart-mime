@@ -1,12 +1,12 @@
 <?php
 namespace MultipartMime\PartTypes;
 
-use MultipartMime\Header;
-use MultipartMime\PartType;
+use MultipartMime\MimeHeader;
+use MultipartMime\MimePartType;
 
-class Base64PartType implements PartType {
+class MimeBase64MimePartType implements MimePartType {
 	/**
-	 * @var Header
+	 * @var MimeHeader
 	 */
 	private $header;
 	/**
@@ -16,11 +16,11 @@ class Base64PartType implements PartType {
 
 	/**
 	 * @param string $content
-	 * @param Header $header
+	 * @param MimeHeader $header
 	 */
-	public function __construct($content, Header $header = null) {
+	public function __construct($content, MimeHeader $header = null) {
 		if($header === null) {
-			$header = new Header();
+			$header = new MimeHeader();
 			$header->set('Content-Disposition', 'form-data');
 			$header->set('Content-Transfer-Encoding', 'base64');
 			$header->set('Content-Type', 'application/octet-stream');

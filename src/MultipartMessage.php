@@ -3,39 +3,39 @@ namespace MultipartMime;
 
 class MultipartMessage {
 	/**
-	 * @var Header
+	 * @var MimeHeader
 	 */
 	private $header;
 	/**
-	 * @var Parts
+	 * @var MimeParts
 	 */
 	private $parts;
 
 	/**
-	 * @param Header $header
-	 * @param Parts $parts
+	 * @param MimeHeader $header
+	 * @param MimeParts $parts
 	 * @return MultipartMessage
 	 */
-	public function __construct(Header $header = null, Parts $parts = null) {
+	public function __construct(MimeHeader $header = null, MimeParts $parts = null) {
 		if($header === null) {
-			$header = new Header();
+			$header = new MimeHeader();
 		}
 		if($parts === null) {
-			$parts = new Parts();
+			$parts = new MimeParts();
 		}
 		$this->header = $header;
 		$this->parts = $parts;
 	}
 
 	/**
-	 * @return Header
+	 * @return MimeHeader
 	 */
 	public function getHeader() {
 		return $this->header;
 	}
 
 	/**
-	 * @return Parts
+	 * @return MimeParts
 	 */
 	public function getParts() {
 		return $this->parts;

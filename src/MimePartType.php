@@ -1,9 +1,9 @@
 <?php
 namespace MultipartMime;
 
-interface PartType {
+interface MimePartType {
 	/**
-	 * @return Header
+	 * @return MimeHeader
 	 */
 	public function getHeader();
 
