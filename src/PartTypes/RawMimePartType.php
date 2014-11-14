@@ -40,6 +40,6 @@ class RawMimePartType implements MimePartType {
 	 * @return string
 	 */
 	public function getContent() {
-		return $this->content;
+		return trim($this->content);
 	}
 }
