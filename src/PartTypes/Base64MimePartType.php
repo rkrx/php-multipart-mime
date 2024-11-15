@@ -16,9 +16,9 @@ class Base64MimePartType implements MimePartType {
 
 	/**
 	 * @param string $content
-	 * @param MimeHeader $header
+	 * @param MimeHeader|null $header
 	 */
-	public function __construct($content, MimeHeader $header = null) {
+	public function __construct($content, ?MimeHeader $header = null) {
 		if($header === null) {
 			$header = new MimeHeader();
 			$header->set('Content-Disposition', 'form-data');
