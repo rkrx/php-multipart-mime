@@ -12,11 +12,11 @@ class MimeMultipartMessage {
 	private $parts;
 
 	/**
-	 * @param MimeHeader $header
-	 * @param MimeParts $parts
+	 * @param MimeHeader|null $header
+	 * @param MimeParts|null $parts
 	 * @return MimeMultipartMessage
 	 */
-	public function __construct(MimeHeader $header = null, MimeParts $parts = null) {
+	public function __construct(?MimeHeader $header = null, ?MimeParts $parts = null) {
 		if($header === null) {
 			$header = new MimeHeader();
 		}
